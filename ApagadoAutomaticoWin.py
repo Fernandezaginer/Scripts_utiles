@@ -1,5 +1,6 @@
-# Script de python para ejecutar un apagado automatico del ordenador
-# Util para clases online
+# Python Script to automaically shutdown the PC and record screen
+# Usefull for pandemic lessons
+# © AFM 2021
 
 import os
 import io
@@ -15,21 +16,21 @@ import pyperclip as clipboard
 # -----------------------------------------------------------
 
 
-# Horas programadas de apagado
-# Apagado (hora, min), grabacion, telnet, hora de grabación (hora, min)
+# Shutdown times:
+# Shutdown (hour, min), recording, telnet, recording time (hour, min)
 APAGADOS = []
 APAGADOS.insert(1,['M',19,40,0,0,19,0])
 APAGADOS.insert(2,['V',19,5,0,0,19,0])
 APAGADOS.insert(3,['L',19,5,0,0,19,0])
 
-# Factor de alumnos para salida de la clase 
+# Stundent factor to stop and shutdown
 factor_alumnos = 0.6
 
 
 
 
 # -----------------------------------------------------------
-#                         FUNCIONES
+#                         FUNCTIONS
 # -----------------------------------------------------------
 
 
@@ -42,30 +43,16 @@ for i in range(len(APAGADOS)):
     for j in range(len(DIAS)):
         if DIAS[j] == APAGADOS[i][0]:
             APAGADOS[i][0] = j+1
-    
-    
 
-def hora():
-    return list(time.localtime())[3]
 
-def minutos():
-    return list(time.localtime())[4]
+hora = lambda : list(time.localtime())[3]
+minutos = lambda : list(time.localtime())[4]
+segundos = lambda :list(time.localtime())[5]
+dia = lambda : datetime.date.today().isoweekday()
+num_dia = lambda : list(time.localtime())[2]
+mes = lambda : list(time.localtime())[1]
+ano = lambda : list(time.localtime())[0]
 
-def segundos():
-    return list(time.localtime())[5]
-
-def dia():
-    fecha=datetime.date.today()
-    return fecha.isoweekday()
-    
-def num_dia():
-    return list(time.localtime())[2]
-
-def mes():
-    return list(time.localtime())[1]
-    
-def ano():
-    return list(time.localtime())[0]
 
 
 def numero_alumnos(aa):

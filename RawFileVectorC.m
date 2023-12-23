@@ -1,4 +1,7 @@
-% Matlab script para obtener el raw de un archivo como vector de C
+% Matlab script to create a C/C++ vector from rawfile
+% Raw vector file
+% © AFM 2022
+
 
 file_in = fopen("file.jpg",'r');
 file_out = fopen('Out.txt','w');
