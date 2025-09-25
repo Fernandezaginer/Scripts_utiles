@@ -1,3 +1,7 @@
+# Python Script to fill an excel form
+# Usefull for recurrent polls
+# © AFM 2025
+
 
 import os
 import win32com.client as win32
@@ -66,6 +70,7 @@ for key, value in dict.items():
 wb.Save()
 wb.Close()
 excel.Quit()
+
 
 
 
